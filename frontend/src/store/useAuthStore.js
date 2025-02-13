@@ -1,7 +1,7 @@
 import { create } from "zustand"
 import { axiosInstanace } from "../lib/axios"
 import toast from "react-hot-toast"
-import {io} from "socket.io-client"
+import io from "socket.io-client";
 
 export const useAuthSrore = create((set, get) => ({
     authUser: null,
