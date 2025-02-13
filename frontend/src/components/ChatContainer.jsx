@@ -66,7 +66,7 @@ const ChatContainer = () => {
                             </time>
                         </div>
 
-                        <div className='chat-bubble chat-bubble-primary flex flex-col '>
+                        <div className='chat-bubble chat-bubble-primary flex flex-col'>
                             {message.image && (
                                 <div
                                     className={`grid gap-2 ${message.image.length === 1
@@ -90,7 +90,7 @@ const ChatContainer = () => {
                                     ))}
                                 </div>
                             )}
-                            {message.text && <p className="mt-2 text-sm break-words">{message.text}</p>}
+                            {message.text && <p className="mt-2 text-sm break-words contents items-center">{message.text}</p>}
                         </div>
                     </div>
                 ))}
