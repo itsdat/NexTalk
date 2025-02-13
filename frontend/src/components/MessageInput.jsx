@@ -68,7 +68,7 @@ const MessageInput = () => {
     };
 
     return (
-        <div className="p-4 w-full">
+        <div className="py-4 px-1 w-full">
             {files.length > 0 && (
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                     {files.map((file, index) => (
@@ -97,11 +97,11 @@ const MessageInput = () => {
                     ))}
                 </div>
             )}
-            <form onSubmit={handleSendMessage} className="flex items-center gap-2">
-                <div className="flex-1 flex gap-2">
+            <form onSubmit={handleSendMessage} className="flex items-center gap-2 justify-center">
+                <div className="flex-1 flex gap-2 items-center">
                     <input
                         type="text"
-                        className="w-full input input-bordered rounded-lg input-sm sm:input-md"
+                        className="w-full input input-bordered rounded-lg input-sm sm:input-md py-5"
                         placeholder="Type a message..."
                         value={text}
                         onChange={(e) => setText(e.target.value)}
@@ -116,7 +116,7 @@ const MessageInput = () => {
                     />
                     <button
                         type="button"
-                        className={`hidden sm:flex btn btn-circle
+                        className={`sm:flex btn btn-circle
                         ${files.length > 0 ? "text-emerald-500" : "text-zinc-400"}`}
                         onClick={() => fileInputRef.current?.click()}
                     >
@@ -128,7 +128,7 @@ const MessageInput = () => {
                     className="btn btn-sm btn-circle size-12"
                     disabled={!text.trim() && files.length === 0}
                 >
-                    <Send size={22} />
+                    <Send size={20} />
                 </button>
             </form>
         </div>

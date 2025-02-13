@@ -8,12 +8,14 @@ import { useAuthSrore } from '../store/useAuthStore';
 import { formatMessageTime } from '../lib/utils';
 import { Image } from 'antd';
 import { useRef } from 'react';
+import { CheckCheckIcon } from 'lucide-react';
 
 const ChatContainer = () => {
 
     const { messages, getMessages, isMessagesLoading, selectedUser, subcribeToMessage, unSubcribeToMessage } = useChatStore()
     const { authUser } = useAuthSrore()
     const messageEndRef = useRef(null)
+    const { onlineUsers } = useAuthSrore();
 
     useEffect(() => {
         if (selectedUser?._id) {
@@ -26,11 +28,11 @@ const ChatContainer = () => {
 
     useEffect(() => {
         if (messageEndRef.current && messages) {
-             messageEndRef.current.scrollIntoView({
-        })
+            messageEndRef.current.scrollIntoView({
+            })
         }
-       
-    },[messages])
+
+    }, [messages])
 
 
     if (isMessagesLoading) return (
@@ -66,14 +68,14 @@ const ChatContainer = () => {
                             </time>
                         </div>
 
-                        <div className='chat-bubble chat-bubble-primary flex flex-col'>
+                        <div className={`chat-bubble ${message.senderId === authUser._id ? "chat-bubble-primary" : ""} flex flex-col `}>
                             {message.image && (
                                 <div
                                     className={`grid gap-2 ${message.image.length === 1
-                                            ? 'grid-cols-1'
-                                            : message.image.length === 2
-                                                ? 'grid-cols-2'
-                                                : 'grid-cols-3'
+                                        ? 'grid-cols-1'
+                                        : message.image.length === 2
+                                            ? 'grid-cols-2'
+                                            : 'grid-cols-3'
                                         }`}
 
                                 >
@@ -92,6 +94,12 @@ const ChatContainer = () => {
                             )}
                             {message.text && <p className="mt-2 text-sm break-words contents items-center">{message.text}</p>}
                         </div>
+                        <div className='chat-footer mb-1'>
+                            <span className='text-xs opacity-50 ml-1 flex items-center gap-1'>
+                                <CheckCheckIcon size={12} /> received
+                            </span>
+                        </div>
+
                     </div>
                 ))}
             </div>
