@@ -17,8 +17,8 @@ const Sidebar = () => {
     if (isUsersLoading) return <SidebarSkeleton />
 
     return (
-        <aside className='h-full w-20 lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200'>
-            <div className='border-r border-base-300 w-full p-5'>
+        <aside className='h-full lg:w-72 border-r border-base-300 flex flex-col transition-all duration-200'>
+            <div className='border-y border-base-300 w-full py-5 px-3'>
                 <div className='flex items-center justify-center gap-2'>
                     <User className='size-6' />
                     <span className='font-medium hidden lg:block'>Contacts</span>
@@ -37,11 +37,11 @@ const Sidebar = () => {
                         `}
                     >
 
-                        <div className='relative mx-auto lg:mx-0 py-3 md:pl-3'>
+                        <div className='relative mx-auto lg:mx-0 py-3 md:pl-3 '>
                             <img
                                 src={user.profilePic || "/avatar.png"}
                                 alt={user.fullName}
-                                className='size-12 object-cover rounded-full'
+                                className='size-10 object-cover rounded-full flex items-center justify-center'
                             />
 
                             {onlineUsers.includes(user._id) && (
