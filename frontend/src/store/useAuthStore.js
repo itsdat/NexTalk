@@ -11,7 +11,7 @@ export const useAuthSrore = create((set, get) => ({
     isCheckingAuth: true,
     onlineUsers: [],
     socket: null,
-    BASE_URL: import.meta.env.MODE === "development" ? "http://localhost:5001" : "/",
+    BASE_URL: import.meta.env.MODE === "development" ? "http://localhost:8000" : "/",
 
     checkAuth: async () => {
         try {

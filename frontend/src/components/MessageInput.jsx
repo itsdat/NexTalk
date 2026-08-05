@@ -97,11 +97,11 @@ const MessageInput = () => {
                     ))}
                 </div>
             )}
-            <form onSubmit={handleSendMessage} className="flex items-center gap-2 justify-center">
+            <form onSubmit={handleSendMessage} className="flex items-center gap-2 px-5 justify-center">
                 <div className="flex-1 flex gap-2 items-center">
                     <input
                         type="text"
-                        className="w-full input input-bordered rounded-lg input-sm sm:input-md py-5"
+                        className="w-full input rounded-full shadow-inner shadow-zinc-200 input-sm sm:input-md py-5"
                         placeholder="Type a message..."
                         value={text}
                         onChange={(e) => setText(e.target.value)}
